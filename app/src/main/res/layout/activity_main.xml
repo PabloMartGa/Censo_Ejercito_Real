@@ -1,19 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:background="#0C0C0F"
+    android:fitsSystemWindows="true"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:padding="24dp">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="24dp"
+        android:text="CENSO DEL EJÉRCITO REAL (SQLITE)"
+        android:textColor="#F1C40F"
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <EditText
+        android:id="@+id/etNombreBatallon"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:backgroundTint="#F1C40F"
+        android:hint="Nombre del batallón (ej: Arqueros de Ithilien)"
+        android:inputType="text"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#777780" />
+
+    <EditText
+        android:id="@+id/etNumeroSoldados"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="#F1C40F"
+        android:hint="Cantidad de efectivos"
+        android:inputType="number"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#777780" />
+
+    <!-- Botones de alta y baja -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnInsertarBD"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="8dp"
+            android:backgroundTint="#27AE60"
+            android:text="Reclutar"
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/btnEliminarBD"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:backgroundTint="#C0392B"
+            android:text="Licenciar"
+            android:textColor="#FFFFFF" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnConsultarBD"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="#2980B9"
+        android:text="Pasar revista general"
+        android:textColor="#FFFFFF" />
+
+    <!-- Aquí se muestra el listado del censo -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#161A23"
+        android:padding="12dp">
+
+        <TextView
+            android:id="@+id/tvConsolaBD"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="monospace"
+            android:text="Pulsa 'Pasar revista general' para ver el censo..."
+            android:textColor="#2ECC71"
+            android:textSize="12sp" />
+    </ScrollView>
+
+</LinearLayout>
